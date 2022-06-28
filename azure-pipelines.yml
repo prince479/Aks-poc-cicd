@@ -11,6 +11,7 @@ pool: aks-private-pool
 variables:
 
   # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: 'acrmedianonprod-connection'
   imageRepository: 'princecicdpocaspnetrepo'
   containerRegistry: 'acrmediawestus3.azurecr.io'
   dockerfilePath: '**/Dockerfile'
@@ -31,6 +32,7 @@ stages:
         command: buildAndPush
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
+        containerRegistry: 'acrmedianonprod-connection'
         tags: |
           $(tag)
 
