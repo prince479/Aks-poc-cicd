@@ -16,7 +16,7 @@ variables:
   containerRegistry: 'acrmediawestus3.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   #tag: 'v2'
-  tag: '${Build.BuildNumber}'
+  tag: '$(Build.BuildId)'
 
   #imagePullSecret: 'acrmediawestus3-auth'
 
