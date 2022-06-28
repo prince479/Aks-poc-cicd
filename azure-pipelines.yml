@@ -61,15 +61,14 @@ stages:
               action: createSecret
               secretName: $(imagePullSecret)
               dockerRegistryEndpoint: 'acrmedianonprod-connection'
-
           - task: KubernetesManifest@0
-            displayName: Deploy to Kubernetes cluster
             inputs:
-              action: deploy
-              manifests: |
+             action: 'deploy'
+             kubernetesServiceConnection: 'aks-media-nonprod-conn'
+             manifests: |
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml
-              imagePullSecrets: |
-                $(imagePullSecret)
-              containers: |
+             imagePullSecrets: |
+              $(imagePullSecret)
+             containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
