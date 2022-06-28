@@ -2,22 +2,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webapi
+  name: webapp
   labels:
     app: weather-forecast
 spec:
   replicas: 2
   selector:
     matchLabels:
-      service: webapi
+      service: webapp
   template:
     metadata:
       labels:
         app: weather-forecast
-        service: webapi
+        service: webapp
     spec:
       containers:
-        - name: webapi
+        - name: webapp
           image: acrmediawestus3.azurecr.io/princecicdpocaspnetrepo:v1
           imagePullPolicy: IfNotPresent
           ports:
