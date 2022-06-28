@@ -1,1 +1,18 @@
 #this is service yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+  labels:
+    app: weather-forecast
+    service: webapp
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+  selector:
+    service: webapp
