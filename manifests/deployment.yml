@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: webapp
-          image: acrmediawestus3.azurecr.io/princecicdpocaspnetrepo:v2
+          image: acrmediawestus3.azurecr.io/princecicdpocaspnetrepo:$(tag)
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
