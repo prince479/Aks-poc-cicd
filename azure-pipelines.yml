@@ -6,9 +6,7 @@
 trigger:
 - main
 
-pool:
-  vmImage: vm-selfhostagent-linux
-
+pool: aks-private-pool
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
