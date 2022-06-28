@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "as79UqrFtdw9BQAy19hfMoQ6nj62nu7VYqSN31VVMj4a9909LEnEZKZizGe6cFppwkYGDSqbA+CG6xkfmczMFg==",
+  "success": true,
+  "projectFilePath": "D:\\AIS Migration\\TestWEbApp\\TestWEbApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Prince Sharma\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.14.0\\microsoft.visualstudio.azure.containers.tools.targets.1.14.0.nupkg.sha512"
+  ],
+  "logs": []
+}
