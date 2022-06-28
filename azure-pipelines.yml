@@ -49,7 +49,7 @@ stages:
   jobs:
   - deployment: Deploy
     displayName: Deploy
-    pool: my-private-pool
+    pool: aks-private-pool
     environment: 'Private-Aks-dev'
     strategy:
       runOnce:
