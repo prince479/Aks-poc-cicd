@@ -15,7 +15,9 @@ variables:
   imageRepository: 'princecicdpocaspnetrepo'
   containerRegistry: 'acrmediawestus3.azurecr.io'
   dockerfilePath: '**/Dockerfile'
-  tag: 'v2'
+  #tag: 'v2'
+  tag: '${Build.BuildNumber}'
+
   #imagePullSecret: 'acrmediawestus3-auth'
 
 stages:
