@@ -15,8 +15,8 @@ variables:
   imageRepository: 'princecicdpocaspnetrepo'
   containerRegistry: 'acrmediawestus3.azurecr.io'
   dockerfilePath: '**/Dockerfile'
-  tag: '$(Build.BuildId)'
-  imagePullSecret: 'acrmediawestus3-auth'
+  tag: 'v1'
+  #imagePullSecret: 'acrmediawestus3-auth'
 
 stages:
 - stage: Build
@@ -55,12 +55,12 @@ stages:
       runOnce:
         deploy:
           steps:
-          - task: KubernetesManifest@0
-            displayName: Create imagePullSecret
-            inputs:
-              action: createSecret
-              secretName: $(imagePullSecret)
-              dockerRegistryEndpoint: 'acrmedianonprod-connection'
+          # - task: KubernetesManifest@0
+          #   displayName: Create imagePullSecret
+          #   inputs:
+          #     action: createSecret
+          #     secretName: $(imagePullSecret)
+          #     dockerRegistryEndpoint: 'acrmedianonprod-connection'
           - task: KubernetesManifest@0
             inputs:
              action: 'deploy'
@@ -68,7 +68,5 @@ stages:
              manifests: |
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml
-             imagePullSecrets: |
-              $(imagePullSecret)
              containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
