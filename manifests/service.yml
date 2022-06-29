@@ -10,8 +10,9 @@ metadata:
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 spec:
   type: LoadBalancer
+  loadBalancerIP: 10.50.0.117
   ports:
-    - port: 8080
+    - port: 443
       targetPort: 80
       protocol: TCP
   selector:
