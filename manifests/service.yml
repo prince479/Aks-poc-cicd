@@ -12,6 +12,7 @@ spec:
   type: LoadBalancer
   loadBalancerIP: 10.50.0.117
   ports:
+  --name: https
     - port: 443
       targetPort: https
       protocol: TCP
@@ -25,20 +26,34 @@ kind: Ingress
 metadata:
   name: webapp-ingress
   annotations:
-    kubernetes.io/ingress.class: azure/application-gateway
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
-  tls:
-    - secretName: dev-horoscopo-secret
-      hosts:
-        - testdev.horoscopo.com
+  ingressClassName: nginx
   rules:
-    - host: testdev.horoscopo.com
-      http:
-        paths:
-        - path: /
-          backend:
-            service:
-              name: webapp
-              port:
-                number: 443
-          pathType: Exact
+  - http:
+      paths:
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: webapp
+            port:
+              number: 443
+# spec:
+#   tls:
+#     - secretName: dev-horoscopo-secret
+#       hosts:
+#         - testdev.horoscopo.com
+#   rules:
+#     - host: testdev.horoscopo.com
+#       http:
+#         paths:
+#         - path: /
+#           backend:
+#             service:
+#               name: webapp
+#               port:
+#                 number: 443
+#           pathType: Exact
