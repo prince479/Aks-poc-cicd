@@ -38,7 +38,7 @@ spec:
         - path: /
           backend:
             service:
-              name: website-service
+              name: webapp
               port:
                 number: 443
           pathType: Exact
