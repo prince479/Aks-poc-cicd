@@ -30,9 +30,8 @@ spec:
   tls:
     - secretName: dev-horoscopo-secret
       hosts:
-        - website.com
+        - dev.horoscopo.com
   rules:
-    - host: website.com
       http:
         paths:
         - path: /
@@ -40,5 +39,5 @@ spec:
             service:
               name: webapp
               port:
-                number: 443
+                number: 80
           pathType: Exact
