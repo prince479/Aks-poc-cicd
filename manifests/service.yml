@@ -31,16 +31,15 @@ metadata:
 spec:
   tls:
     - secretName: dev-horoscopo-secret
-      hosts:
-        - dev.horoscopo.com
+#       hosts:
+#         - dev.horoscopo.com
   rules:
-    - host: dev.horoscopo.com
-      http:
-        paths:
-        - path: /
-          backend:
-            service:
-              name: webapp
-              port:
-                number: 80
-          pathType: Exact
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: webapp
+          servicePort: 80
+      - backend:
+          serviceName: frontend
+          servicePort: 80
