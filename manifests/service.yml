@@ -30,6 +30,8 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
+  tls:
+    - secretName: dev-horoscopo-secret
   rules:
   - http:
       paths:
@@ -39,7 +41,7 @@ spec:
           service:
             name: webapp
             port:
-              number: 443
+              number: 80
 # spec:
 #   tls:
 #     - secretName: dev-horoscopo-secret
