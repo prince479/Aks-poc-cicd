@@ -25,8 +25,8 @@ metadata:
   name: webapp-ingress
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
-    appgw.ingress.kubernetes.io/ssl-redirect: "true"
-    appgw.ingress.kubernetes.io/backend-protocol: "https"
+#     appgw.ingress.kubernetes.io/ssl-redirect: "true"
+#     appgw.ingress.kubernetes.io/backend-protocol: "https"
     #appgw.ingress.kubernetes.io/appgw-ssl-certificate: "horoscopo-cert"
 spec:
   tls:
@@ -42,5 +42,5 @@ spec:
             service:
               name: webapp
               port:
-                number: 443
+                number: 80
           pathType: Exact
