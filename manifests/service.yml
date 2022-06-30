@@ -29,7 +29,7 @@ metadata:
     appgw.ingress.kubernetes.io/backend-protocol: "https"
     #appgw.ingress.kubernetes.io/appgw-ssl-certificate: "horoscopo-cert"
 spec:
-tls:
+  tls:
     - secretName: dev-horoscopo-secret
       hosts:
         - dev.horoscopo.com
