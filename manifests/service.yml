@@ -9,8 +9,6 @@ metadata:
   annotations:
     service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 spec:
-  tls:
-    - secretName: dev-horoscopo-secret
   type: LoadBalancer
   loadBalancerIP: 10.50.0.117
   ports:
