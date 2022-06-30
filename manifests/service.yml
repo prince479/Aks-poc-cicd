@@ -29,7 +29,10 @@ metadata:
 spec:
   tls:
     - secretName: dev-horoscopo-secret
+      hosts:
+        - website.com
   rules:
+    - host: website.com
       http:
         paths:
         - path: /
