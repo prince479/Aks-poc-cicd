@@ -38,8 +38,13 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: webapp
-          servicePort: 80
+          service:
+              name: webapp
+              port:
+                number: 80
       - backend:
-          serviceName: frontend
-          servicePort: 80
+          service:
+              name: frontend
+              port:
+                number: 80
+      pathType: Exact
