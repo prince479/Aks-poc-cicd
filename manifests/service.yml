@@ -12,9 +12,14 @@ spec:
   type: LoadBalancer
   loadBalancerIP: 10.50.0.117
   ports:
-    - port: 443
-      targetPort: 80
+    - name: http
       protocol: TCP
+    - port: 80
+      targetPort: 80
+    - name: https
+      protocol: TCP
+    - port: 443
+      targetPort: 443
   selector:
     service: webapp
     
@@ -30,9 +35,9 @@ spec:
   tls:
     - secretName: dev-horoscopo-secret
       hosts:
-        - test.horoscopo.com
+        - testdev.horoscopo.com
   rules:
-    - host: test.horoscopo.com
+    - host: testdev.horoscopo.com
       http:
         paths:
         - path: /
@@ -40,5 +45,5 @@ spec:
             service:
               name: webapp
               port:
-                number: 80
+                number: 443
           pathType: Exact
