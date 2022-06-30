@@ -13,7 +13,7 @@ spec:
   loadBalancerIP: 10.50.0.117
   ports:
     - port: 443
-      targetPort: 80
+      targetPort: https
       protocol: TCP
   selector:
     service: webapp
