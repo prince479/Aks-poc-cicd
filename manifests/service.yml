@@ -30,8 +30,9 @@ spec:
   tls:
     - secretName: dev-horoscopo-secret
       hosts:
-        - dev.horoscopo.com
+        - test.horoscopo.com
   rules:
+    - host: test.horoscopo.com
       http:
         paths:
         - path: /
