@@ -21,8 +21,6 @@ kind: Ingress
 metadata:
   name: webapp-ingress
   namespace: ingress-controller
-  # annotations:
-    # nginx.ingress.kubernetes.io/ssl-redirect: "false"
 
 spec:
   # tls:
