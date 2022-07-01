@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp
-  namespace: ingress-nginx
+  namespace: ingress-controller
   labels:
     app: weather-forecast
 spec:
@@ -18,12 +18,12 @@ spec:
         service: webapp
     spec:
       containers:
-        - name: webapp
-          image: acrmediawestus3.azurecr.io/princecicdpocaspnetrepo:$(tag)
-          imagePullPolicy: IfNotPresent
-          ports:
-            - containerPort: 80
+      - name: webapp
+        image: acrmediawestus3.azurecr.io/princecicdpocaspnetrepo:($tag)
+        ports:
+            - name: http
+              containerPort: 80
               protocol: TCP
-          env:
-            - name: ASPNETCORE_URLS
-              value: http://+:80
+            - name: https
+              containerPort: 443
+              protocol: TCP
