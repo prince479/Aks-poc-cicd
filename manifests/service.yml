@@ -32,7 +32,7 @@ spec:
   # - host: dev.horoscopo.com
   - http:
       paths:
-      - path: /
+      - path: /horoscopo-test
         pathType: ImplementationSpecific
         backend:
           service:
