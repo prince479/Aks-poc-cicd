@@ -27,7 +27,7 @@ spec:
   #     - hosts:
   #       - dev.horoscopo.com
   #       secretName: dev-horoscopo-secret2
-  ingressClassName: uat-nginx
+  ingressClassName: nginx-uat
   rules:
   # - host: dev.horoscopo.com
   - http:
