@@ -15,9 +15,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UsePathBase("/horoscopo-test");
 app.UseRouting();
-
 app.UseAuthorization();
 
 app.MapControllerRoute(
