@@ -33,7 +33,7 @@ spec:
   - http:
       paths:
       - path: /horoscopo-test
-        pathType: ImplementationSpecific
+        pathType: Exact
         backend:
           service:
             name: webapp
