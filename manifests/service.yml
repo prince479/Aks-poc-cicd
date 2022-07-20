@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: webapp
-  namespace: ingress-controller
+  namespace: uat-ingress-controller
   labels:
     app: weather-forecast
     service: webapp
@@ -20,20 +20,20 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: webapp-ingress
-  namespace: ingress-controller
+  namespace: uat-ingress-controller
 
 spec:
   # tls:
   #     - hosts:
   #       - dev.horoscopo.com
   #       secretName: dev-horoscopo-secret2
-  ingressClassName: nginx
+  ingressClassName: uat-nginx
   rules:
   # - host: dev.horoscopo.com
   - http:
       paths:
       - path: /
-        pathType: Prefix
+        pathType: ImplementationSpecific
         backend:
           service:
             name: webapp
