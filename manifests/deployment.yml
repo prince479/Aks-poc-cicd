@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp
-  namespace: ingress-controller
+  namespace: uat-ingress-controller
   labels:
     app: weather-forecast
 spec:
@@ -27,3 +27,5 @@ spec:
             - name: https
               containerPort: 443
               protocol: TCP
+      nodeSelector:
+        agentpool: stagingpool
