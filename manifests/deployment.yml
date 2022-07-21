@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp
-  namespace: uat-ingress-controller
+  namespace: dev-astrology-controller
   labels:
     app: weather-forecast
 spec:
